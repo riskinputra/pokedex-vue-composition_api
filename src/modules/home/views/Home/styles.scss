@@ -1,0 +1,173 @@
+@import '@/styles/base/colors.scss';
+
+.home {
+  background-color: $bg-color;
+  &-section {
+    &__left {
+      @apply h-screen;
+      @apply hidden md:flex;
+      @apply justify-center;
+      @apply items-center;
+
+      .left-content {
+        @apply bg-white;
+        @apply w-9/12;
+        @apply h-5/6;
+        @apply ml-auto;
+        @apply md:rounded-3xl sm:rounded-2xl;
+        @apply flex;
+        @apply justify-center;
+        @apply items-center;
+        img {
+          @apply w-10/12;
+        }
+      }
+    }
+
+    &__right {
+      @apply h-screen;
+      @apply px-6;
+
+      .right-logo {
+        @apply w-full;
+        @apply py-8;
+        
+        img {
+          @apply w-6/12;
+          @apply m-auto;
+        }
+      }
+
+      .right-content {
+        .btn {
+          height: 100px;
+          @apply relative;
+          @apply rounded-2xl;
+          @apply text-sm;
+          @apply font-medium;
+          @apply border-0;
+          @apply focus:outline-none;
+          @apply focus:ring;
+          @apply transition;
+          @apply text-white;
+          @apply text-left;
+          @apply text-3xl;
+
+          .btn-label,
+          .btn-line,
+          .btn-img {
+            @apply absolute;
+          }
+
+          .btn-line {
+            top: 55%;
+            transform: translateY(-55%);
+            left: 0;
+            height: 4px;
+            width: 70%;
+            @apply bg-white;
+          }
+          .btn-label {
+            top: 40%;
+            transform: translateY(-65%);
+            left: 16px;
+          }
+
+          .btn-img {
+            top: 80%;
+            transform: translateY(-80%);
+            right: 0;
+            height: 100px;
+            width: 130px;
+            background-image: url('./content-box.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            mask-image: url('~@/assets/pokeball-1.svg');
+            mask-size: cover;
+            mask-position: center;
+            mask-repeat: no-repeat;
+          }
+        
+          &.btn-pokemon {
+            background-color: $pk-grass;
+            &:hover {
+              background-color: rgba($color: $pk-grass, $alpha: .8);
+            }
+            &:active {
+              background-color: rgba($color: $pk-grass, $alpha: .9);
+            }
+            &:focus {
+              background-color: rgba($color: $pk-grass, $alpha: .5);
+            }
+          }
+          &.btn-types {
+            background-color: $pk-fighting;
+            &:hover {
+              background-color: rgba($color: $sh-fighting, $alpha: .8);
+            }
+            &:active {
+              background-color: rgba($color: $sh-fighting, $alpha: .9);
+            }
+            &:focus {
+              background-color: rgba($color: $sh-fighting, $alpha: .5);
+            }
+          }
+        
+          &.btn-abilities {
+            background-color: $pk-water;
+            &:hover {
+              background-color: rgba($color: $sh-water, $alpha: .8);
+            }
+            &:active {
+              background-color: rgba($color: $sh-water, $alpha: .9);
+            }
+            &:focus {
+              background-color: rgba($color: $sh-water, $alpha: .5);
+            }
+          }
+        
+          &.btn-location {
+            background-color: $pk-electric;
+            &:hover {
+              background-color: rgba($color: $sh-electric, $alpha: .8);
+            }
+            &:active {
+              background-color: rgba($color: $sh-electric, $alpha: .9);
+            }
+            &:focus {
+              background-color: rgba($color: $sh-electric, $alpha: .5);
+            }
+          }
+        
+          &.btn-items {
+            background-color: $pk-poison;
+            &:hover {
+              background-color: rgba($color: $sh-poison, $alpha: .8);
+            }
+            &:active {
+              background-color: rgba($color: $sh-poison, $alpha: .9);
+            }
+            &:focus {
+              background-color: rgba($color: $sh-poison, $alpha: .5);
+            }
+          }
+        
+          &.btn-moves {
+            background-color: $pk-rock;
+            &:hover {
+              background-color: rgba($color: $sh-rock, $alpha: .8);
+            }
+            &:active {
+              background-color: rgba($color: $sh-rock, $alpha: .9);
+            }
+            &:focus {
+              background-color: rgba($color: $sh-rock, $alpha: .5);
+            }
+          }
+        }
+      }
+    }
+  }
+}

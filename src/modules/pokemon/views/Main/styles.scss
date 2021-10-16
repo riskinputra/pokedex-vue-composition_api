@@ -1,0 +1,60 @@
+@import '@/styles/base/colors.scss';
+
+.pokemon {
+  background-color: $bg-color;
+  background-image: url('~@/assets/pokeball-2.svg');
+  background-size: 50rem;
+  background-position-y: -15rem;
+  background-position-x: -15rem;
+  background-repeat: no-repeat;
+  @apply h-screen;
+
+  &-content {
+    @apply py-10;
+  }
+
+  &-list {
+    &__item {
+      height: 200px;
+      @apply w-full;
+      @apply bg-white;
+      @apply rounded-3xl;
+      box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+
+      @apply flex;
+      @apply flex-col;
+      @apply justify-between;
+      @apply text-center;
+
+      .item-image {
+        img {
+          @apply mx-auto;
+          width: 55px;
+          margin-top: -2rem;
+        }
+      }
+
+      .item-info {
+        @apply mb-6;
+        &__number {
+          @apply text-sm;
+          @apply font-semibold;
+          @apply text-gray-400;
+          @apply mb-4;
+        }
+        &__name {
+          @apply text-lg;
+          @apply font-semibold;
+          @apply text-black;
+          @apply mb-3;
+        }
+        &__type {
+          @apply px-4;
+          @apply flex;
+          @apply justify-around;
+          @apply flex-wrap;
+        }
+      }
+    }
+  }
+}
