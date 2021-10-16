@@ -9,6 +9,7 @@
   @apply px-2;
   @apply max-w-max;
   @apply rounded-md;
+  @apply font-semibold;
 
   &-normal {
     background-color: $pk-normal;

@@ -7,7 +7,7 @@
   background-position-y: -15rem;
   background-position-x: -15rem;
   background-repeat: no-repeat;
-  @apply h-screen;
+  @apply min-h-screen;;
 
   &-content {
     @apply py-10;
@@ -15,6 +15,7 @@
 
   &-list {
     &__item {
+      @apply relative;
       height: 200px;
       @apply w-full;
       @apply bg-white;
@@ -25,17 +26,22 @@
       @apply flex-col;
       @apply justify-between;
       @apply text-center;
+      @apply mt-8;
+      
 
       .item-image {
+        @apply absolute;
+        top: -30%;
+        left: 50%;
+        transform: translate(-50%, 50%);
         img {
           @apply mx-auto;
           width: 55px;
-          margin-top: -2rem;
         }
       }
 
       .item-info {
-        @apply mb-6;
+        @apply pt-20;
         &__number {
           @apply text-sm;
           @apply font-semibold;
@@ -51,8 +57,14 @@
         &__type {
           @apply px-4;
           @apply flex;
-          @apply justify-around;
+          @apply justify-center;
           @apply flex-wrap;
+
+          .tag {
+            &:not(:last-of-type) {
+              @apply mr-1.5;
+            }
+          }
         }
       }
     }

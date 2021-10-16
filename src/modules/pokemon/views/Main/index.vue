@@ -36,18 +36,10 @@
 
                 </div>
               </div>
-              <div class="pokemon-list__item">
-                asd
-              </div>
-              <div class="pokemon-list__item">
-                asd
-              </div>
             </div>
           </div>
 
-          <div class="pokemon-detail">
-            detail
-          </div>
+          <Detail />
         </div>
       </div>
     </div>
@@ -56,11 +48,13 @@
 
 <script>
 import Tag from '@/components/Tag'
+import Detail from './components/Detail'
 
 export default {
-  name: 'Home',
+  name: 'Pokemon',
   components: {
-    Tag
+    Tag,
+    Detail
   },
   setup () {
     //

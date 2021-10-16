@@ -1,0 +1,173 @@
+@import '@/styles/base/colors.scss';
+
+.pokemon-detail {
+  @apply relative;
+  @apply bg-white;
+  @apply rounded-3xl;
+  @apply px-8;
+  @apply pb-8;
+  margin-top: 8rem;
+  padding-top: 8rem;
+
+  &__focus {
+    background-color: #F9FAF7;
+    @apply px-6;
+    @apply py-2;
+    @apply w-full;
+    @apply rounded-full;
+    @apply flex;
+    @apply justify-between;
+    @apply items-center;
+    @apply font-semibold;
+
+    img {
+      width: 20px
+    }
+  }
+
+  &__label {
+    @apply text-xl;
+    @apply font-semibold;
+    @apply text-center;
+    @apply mb-3;
+    letter-spacing: 3px;
+  }
+
+  &__image {
+    @apply absolute;
+    top: -10%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    img {
+      width: 250px;
+      @apply mx-auto;
+    }
+  }
+
+  &__number {
+    @apply text-sm;
+    @apply font-semibold;
+    @apply text-gray-400;
+    @apply mb-1;
+    @apply text-center;
+  }
+
+  &__name {
+    @apply text-center;
+    @apply text-4xl;
+    @apply font-semibold;
+    @apply text-black;
+    @apply mb-1;
+  }
+  
+  &__species {
+    @apply text-sm;
+    @apply text-gray-400;
+    @apply mb-3;
+    @apply text-center;
+  }
+
+  &__types {
+    @apply px-4;
+    @apply flex;
+    @apply justify-center;
+    @apply flex-wrap;
+    @apply mb-5;
+
+    .tag {
+      &:not(:last-of-type) {
+        @apply mr-1.5;
+      }
+    }
+  }
+
+  &__desc {
+    @apply mb-5;
+  }
+
+  &__abilities {
+    @apply mb-5;
+    .pokemon-detail__focus {
+      border: 2px solid #C8D7F2;
+
+      &.hidden-skill {
+        border: 2px solid #CDABAE;
+
+        img {
+          color: #ACA8AF;
+        }
+      }
+    }
+  }
+
+  &__abilities-next {
+    @apply mb-5;
+    .pokemon-detail__focus {
+      @apply justify-center;
+    }
+  }
+
+  &__stats {
+    .stats-item {
+      background-color: #F9FAF7;
+      @apply p-2;
+      @apply font-semibold;
+      @apply text-sm;
+      @apply rounded-full;
+      @apply text-center;
+
+      .item-label {
+        @apply rounded-full;
+        @apply p-1;
+        @apply text-sm;
+        @apply bg-white;
+        height: 40px;
+        width: 40px;
+        @apply flex;
+        @apply justify-center;
+        @apply items-center;
+      }
+
+      .item-value {
+        @apply mt-2;
+      }
+
+      &.hp {
+        .item-label {
+          background-color: #E22944;
+        }
+      }
+      &.atk {
+        .item-label {
+          background-color: #FF9B58;
+        }
+      }
+      &.def {
+        .item-label {
+          background-color: #FEDD5C;
+        }
+      }
+      &.spa {
+        .item-label {
+          background-color: #83DCFB;
+        }
+      }
+      &.spo {
+        .item-label {
+          background-color: #A3F08C;
+        }
+      }
+      &.spd {
+        .item-label {
+          background-color: #FC93A5;
+        }
+      }
+      &.tot {
+        background-color: #90AFFC;
+        .item-label {
+          background-color: #7293D9;
+        }
+      }
+    }
+  }
+}
