@@ -15,6 +15,7 @@
 
   &-list {
     &__item {
+      @apply cursor-pointer;
       @apply relative;
       height: 200px;
       @apply w-full;

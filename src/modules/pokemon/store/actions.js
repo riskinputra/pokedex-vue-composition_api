@@ -1,3 +1,5 @@
-const actions = {}
+const actions = {
+  // fetchPokemonList()
+}
 
 export default actions

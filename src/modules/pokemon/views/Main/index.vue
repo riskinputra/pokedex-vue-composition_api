@@ -18,7 +18,7 @@
             <div class="pokemon-list grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-4 md:gap-6">
               <div class="pokemon-list__item">
                 <div class="item-image">
-                  <img src="@/assets/1.gif" alt="1">
+                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/395.gif" alt="1">
                 </div>
                 <div class="item-info">
                   <div class="item-info__number">
@@ -33,7 +33,6 @@
                     <Tag>Grass</Tag>
                     <Tag>Grass</Tag>
                   </div>
-
                 </div>
               </div>
             </div>

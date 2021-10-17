@@ -1,3 +1,9 @@
 export default () => ({
-  msg: 'Hello'
+  pokemons: {
+    results: [],
+    isLoading: false
+  },
+  pokemonsDetail: {
+    isLoading: false
+  }
 })
