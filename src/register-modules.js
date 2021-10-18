@@ -2,6 +2,7 @@
 import store from './store'
 
 const registerModule = (name, module) => {
+  console.log({ name, module })
   if (module.store) {
     store.registerModule(name, module.store)
   }

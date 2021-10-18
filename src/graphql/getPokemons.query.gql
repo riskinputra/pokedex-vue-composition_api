@@ -1,0 +1,16 @@
+query getPokemons {
+  pokemons: pokemon_v2_pokemon(
+    # where: { pokemon_v2_generation: { name: { _eq: "generation-i" } } }
+    order_by: { id: asc },
+    limit: 9
+  ) {
+    name
+    id
+    types: pokemon_v2_pokemontypes {
+      type: pokemon_v2_type {
+        id
+        name
+      }
+    }
+  }
+}

@@ -16,7 +16,7 @@
 
             <!-- Pokemon List -->
             <div class="pokemon-list grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-4 md:gap-6">
-              <div class="pokemon-list__item">
+              <div v-for="pokemon in pokemons" :key="pokemon.id" class="pokemon-list__item">
                 <div class="item-image">
                   <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/395.gif" alt="1">
                 </div>
@@ -46,8 +46,10 @@
 </template>
 
 <script>
-import { onMounted, computed } from 'vue'
-import { useStore } from 'vuex'
+import { ref } from 'vue'
+import { useQuery, useResult } from '@vue/apollo-composable'
+
+import getPokemons from '@/graphql/getPokemons.query.gql'
 
 import Tag from '@/components/Tag'
 import Detail from './components/Detail'
@@ -59,17 +61,16 @@ export default {
     Detail
   },
   setup () {
-    const store = useStore()
-    const pokemons = computed(() => store.state.pokemon.pokemons)
+    const msg = ref('hello')
+    const { result } = useQuery(getPokemons)
+    const pokemons = useResult(result, null, data => data.pokemons)
 
-    onMounted(() => {
-      getDataPokemon()
-    })
-    async function getDataPokemon () {
-      store.dispatch('pokemon/', null, { root: true })
+    console.log({ result, pokemons })
+
+    return {
+      msg,
+      pokemons
     }
-    console.log({ pokemons: pokemons.value })
-    //
   }
 }
 </script>

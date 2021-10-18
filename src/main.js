@@ -1,4 +1,6 @@
-import { createApp } from 'vue'
+import { createApp, provide, h } from 'vue'
+import { ApolloClient, InMemoryCache } from '@apollo/client'
+import { ApolloClients } from '@vue/apollo-composable'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -18,4 +20,18 @@ registerModules({
   pokemon: pokemonModule
 })
 
-createApp(App).use(store).use(router).mount('#app')
+const defaultClient = new ApolloClient({
+  uri: 'https://beta.pokeapi.co/graphql/v1beta',
+  cache: new InMemoryCache()
+})
+
+createApp({
+  setup () {
+    provide(ApolloClients, {
+      default: defaultClient
+    })
+  },
+  render () {
+    return h(App)
+  }
+}).use(store).use(router).mount('#app')
