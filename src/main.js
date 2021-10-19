@@ -1,6 +1,8 @@
-import { createApp, provide, h } from 'vue'
+import { createApp, provide, h, onBeforeMount } from 'vue'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 import { ApolloClients } from '@vue/apollo-composable'
+
+import Http from '@/services/http'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -27,6 +29,7 @@ const defaultClient = new ApolloClient({
 
 createApp({
   setup () {
+    onBeforeMount(() => Http.init())
     provide(ApolloClients, {
       default: defaultClient
     })

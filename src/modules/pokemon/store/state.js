@@ -1,6 +1,6 @@
 export default () => ({
   pokemons: {
-    results: [],
+    data: [],
     isLoading: false
   },
   pokemonsDetail: {

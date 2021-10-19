@@ -6,7 +6,7 @@ export const getBaseUrl = (mode) => {
     case 'production':
       return 'https://pokeapi.co/api/v2/'
     default:
-      return 'https://pokeapi.co/api/v2/' || 'http://localhost:8000/'
+      return 'https://pokeapi.co/api/v2/'
   }
 }
 
@@ -94,64 +94,64 @@ const HTTP = {
   },
   delete (url, data, headers = {}) {
     return this.request('delete', `${url}`, data, headers)
-  }
-  // init () {
-  //   axios.defaults.baseURL = API_DOMAIN
+  },
+  init () {
+    axios.defaults.baseURL = API_DOMAIN
 
-  //   // Intercept the request to make sure the token is injected into the header.
-  //   axios.interceptors.request.use((config) => {
-  //     const token = cookieServices.getAccessToken()
-  //     if (!isEmpty(token)) {
-  //       config.headers.Authorization = `Bearer ${token}`
-  //     }
+    //   // Intercept the request to make sure the token is injected into the header.
+    //   axios.interceptors.request.use((config) => {
+    //     const token = cookieServices.getAccessToken()
+    //     if (!isEmpty(token)) {
+    //       config.headers.Authorization = `Bearer ${token}`
+    //     }
 
-  //     return config
-  //   })
+    //     return config
+    //   })
 
-  //   // Intercept the response and…
-  //   axios.interceptors.response.use(
-  //     (response) => {
-  //       return response
-  //     },
-  //     (error) => {
-  //       // if you does not have refresh - token api
-  //       if (error.response.status === 401) {
-  //         cookieServices.clearCookie()
-  //         router.push({ name: 'root' })
-  //         return new Promise((resolve, reject) => {
-  //           reject(error)
-  //         })
-  //       }
+    //   // Intercept the response and…
+    //   axios.interceptors.response.use(
+    //     (response) => {
+    //       return response
+    //     },
+    //     (error) => {
+    //       // if you does not have refresh - token api
+    //       if (error.response.status === 401) {
+    //         cookieServices.clearCookie()
+    //         router.push({ name: 'root' })
+    //         return new Promise((resolve, reject) => {
+    //           reject(error)
+    //         })
+    //       }
 
-  //       // Return any error which is not due to authentication back to the calling service
-  //       if (error.response.status !== 401) {
-  //         return new Promise((resolve, reject) => {
-  //           reject(error)
-  //         })
-  //       }
+    //       // Return any error which is not due to authentication back to the calling service
+    //       if (error.response.status !== 401) {
+    //         return new Promise((resolve, reject) => {
+    //           reject(error)
+    //         })
+    //       }
 
-  //       // Logout user if token refresh didn't work or user is disabled
-  //       if (error.config.url === '/refresh-token' || error.response.message === 'The refresh token is invalid.') {
-  //         cookieServices.clearCookie()
-  //         router.push({ name: 'root' })
-  //         return new Promise((resolve, reject) => {
-  //           reject(error)
-  //         })
-  //       }
+    //       // Logout user if token refresh didn't work or user is disabled
+    //       if (error.config.url === '/refresh-token' || error.response.message === 'The refresh token is invalid.') {
+    //         cookieServices.clearCookie()
+    //         router.push({ name: 'root' })
+    //         return new Promise((resolve, reject) => {
+    //           reject(error)
+    //         })
+    //       }
 
-  //       // Try request again with new token
-  //       return cookieServices.getNewToken()
-  //         .then((token) => {
-  //           if (helper.hasErrorProperty(token.data)) {
-  //             cookieServices.clearCookie()
-  //             router.push({ name: 'root' })
-  //             return new Promise((resolve, reject) => {
-  //               reject(token)
-  //             })
-  //           }
-  //           // New request with new token
-  //           const config = error.config
-  //           config.headers.Authorization = `Bearer ${token}`
+    //       // Try request again with new token
+    //       return cookieServices.getNewToken()
+    //         .then((token) => {
+    //           if (helper.hasErrorProperty(token.data)) {
+    //             cookieServices.clearCookie()
+    //             router.push({ name: 'root' })
+    //             return new Promise((resolve, reject) => {
+    //               reject(token)
+    //             })
+    //           }
+    //           // New request with new token
+    //           const config = error.config
+    //           config.headers.Authorization = `Bearer ${token}`
 
   //           return new Promise((resolve, reject) => {
   //             axios.request(config).then(response => {
@@ -173,7 +173,7 @@ const HTTP = {
   //         })
   //     }
   //   )
-  // }
+  }
 }
 
 export default HTTP

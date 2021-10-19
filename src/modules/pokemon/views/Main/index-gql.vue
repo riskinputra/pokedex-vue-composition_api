@@ -65,8 +65,6 @@ export default {
     const { result } = useQuery(getPokemons)
     const pokemons = useResult(result, null, data => data.pokemons)
 
-    console.log({ result, pokemons })
-
     return {
       msg,
       pokemons

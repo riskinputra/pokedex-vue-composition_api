@@ -10,6 +10,7 @@
   @apply max-w-max;
   @apply rounded-md;
   @apply font-semibold;
+  @apply capitalize;
 
   &-normal {
     background-color: $pk-normal;
