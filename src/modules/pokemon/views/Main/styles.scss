@@ -17,43 +17,50 @@
     &__item {
       @apply cursor-pointer;
       @apply relative;
-      height: 200px;
       @apply w-full;
       @apply bg-white;
       @apply rounded-3xl;
       box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
 
       @apply flex;
-      @apply flex-col;
       @apply justify-between;
+      @apply items-center;
       @apply text-center;
-      @apply mt-8;
-      
+      @apply px-5;
+      @apply h-32;
+      @apply md:h-44;   
 
       .item-image {
-        @apply absolute;
-        top: -30%;
-        left: 50%;
-        transform: translate(-50%, 50%);
+        background-size: contain;
+        background-image: url('~@/assets/pokeball-1.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        @apply h-40;
+        @apply md:h-44;
+        @apply flex;
+        @apply justify-center;
+        @apply items-center;
+
         img {
           @apply mx-auto;
-          min-height: 55px;
-          max-height: 70px
+          max-height: 130px;
         }
       }
 
       .item-info {
-        @apply pt-20;
+        &__number,
+        &__name {
+          text-shadow: 0 0 12px rgb(0 0 0 / 25%);
+          @apply text-white;
+        }
         &__number {
           @apply text-sm;
           @apply font-semibold;
-          @apply text-gray-400;
-          @apply mb-4;
+          @apply mb-1;
         }
         &__name {
-          @apply text-lg;
+          @apply text-2xl;
           @apply font-semibold;
-          @apply text-black;
           @apply mb-3;
           @apply capitalize;
         }

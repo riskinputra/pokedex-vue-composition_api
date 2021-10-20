@@ -1,0 +1,12 @@
+.pokemon-type {
+  @apply p-0.5;
+  @apply md:p-1;
+  @apply h-8;
+  @apply md:h-10;
+  @apply w-8;
+  @apply md:w-10;
+  background: linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
+  @apply rounded-full;
+  box-shadow: 0 20px 25px -10px rgb(0 0 0 / 15%);
+  margin: 0 6px 6px 0;
+}

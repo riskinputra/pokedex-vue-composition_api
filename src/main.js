@@ -27,7 +27,7 @@ const defaultClient = new ApolloClient({
   cache: new InMemoryCache()
 })
 
-createApp({
+const app = createApp({
   setup () {
     onBeforeMount(() => Http.init())
     provide(ApolloClients, {
@@ -37,4 +37,18 @@ createApp({
   render () {
     return h(App)
   }
-}).use(store).use(router).mount('#app')
+}).use(store).use(router)
+
+app.config.globalProperties.$filters = {
+  addingZerroFormatNumber (value) {
+    switch (true) {
+      case value < 10:
+        return `00${value}`
+      case value < 100:
+        return `0${value}`
+      default:
+        return value
+    }
+  }
+}
+app.mount('#app')

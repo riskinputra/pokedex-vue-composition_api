@@ -1,13 +1,15 @@
 @import '@/styles/base/colors.scss';
 
 .pokemon-detail {
-  @apply relative;
+  @apply sticky;
   @apply bg-white;
   @apply rounded-3xl;
   @apply px-8;
   @apply pb-8;
   margin-top: 8rem;
   padding-top: 8rem;
+  top: 0;
+  @apply h-screen;
 
   &__focus {
     background-color: #F9FAF7;
