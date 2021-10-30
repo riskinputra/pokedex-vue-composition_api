@@ -45,8 +45,7 @@
               </div>
             </div>
           </div>
-
-          <Detail :pokemon="activePokemon" />
+          <Detail v-if="Object.keys(activePokemon).length" :pokemon="activePokemon" />
         </div>
       </div>
     </div>
@@ -54,7 +53,7 @@
 </template>
 
 <script>
-import { computed, reactive, onMounted, onUnmounted, ref } from 'vue'
+import { computed, reactive, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useStore } from 'vuex'
 
 import { bgPokemonColor } from '@/utils/colors'
@@ -69,14 +68,26 @@ export default {
     PokemonType
   },
   setup () {
+    const activePokemon = ref({})
+
+    const handleActivePokemon = (pokemon) => {
+      activePokemon.value = pokemon
+    }
+
     const query = reactive({
       page: 1,
       offset: 0
     })
-    const activePokemon = ref({})
     const store = useStore()
     const pokemons = computed(() => store.state.pokemon.pokemons)
     const fetchPokemons = async (param) => await store.dispatch('pokemon/fetchPokemonList', param)
+
+    watch(pokemons, (newVal) => {
+      if (!Object.keys(activePokemon.value).length) {
+        activePokemon.value = newVal.data[0]
+      }
+    })
+
     fetchPokemons(query)
 
     const handleScroll = () => {
@@ -84,6 +95,7 @@ export default {
         if (query.offset < 118) {
           query.page += 1
           query.offset += 15
+
           fetchPokemons(query)
         }
       }
@@ -99,17 +111,11 @@ export default {
       window.removeEventListener('scroll', handleScroll)
     })
 
-    const handleActivePokemon = (pokemon) => {
-      console.log({ pokemon })
-      activePokemon.value = pokemon
-      console.log({ activePokemon: activePokemon.value })
-    }
-
     return {
       pokemons,
       bgPokemonColor,
       handleActivePokemon,
-      activePokemon: activePokemon.value
+      activePokemon
     }
     //
   }
