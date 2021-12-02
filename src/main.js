@@ -1,6 +1,7 @@
 import { createApp, provide, h, onBeforeMount } from 'vue'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 import { ApolloClients } from '@vue/apollo-composable'
+import VueLazyLoad from 'vue3-lazyload'
 
 import Http from '@/services/http'
 import App from './App.vue'
@@ -51,4 +52,5 @@ app.config.globalProperties.$filters = {
     }
   }
 }
+app.use(VueLazyLoad)
 app.mount('#app')

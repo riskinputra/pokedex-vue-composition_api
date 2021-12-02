@@ -1,0 +1,19 @@
+.content {
+  border-radius: 30px;
+  background-color: rgba(241, 245, 248, 1);
+  max-height: calc(100vh - 2.5rem);
+  @apply flex-1;
+  @apply min-h-full;
+  @apply min-w-0;
+
+  @media (max-width: 767px) {
+    @apply max-w-full;
+    @apply px-4;
+  }
+  &:before {
+    content: "";
+    @apply block;
+    height: 1px;
+    @apply w-full
+  }
+}

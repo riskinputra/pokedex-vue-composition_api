@@ -2,21 +2,9 @@ import axios from 'axios'
 
 import * as types from './mutation-types'
 
-// const actions = {
-//   fetchPokemonList: async ({ commit }) => {
-//     commit(types.GET_POKEMON_PRELOAD, true)
-//     try {
-//       const res = await API_URL.pokemon.getPokemon()
-//       console.log({ res })
-//     } catch (error) {
-//       console.error('fetchPokemonList', error.response)
-//     }
-//   }
-// }
-
 const actions = {
-  fetchPokemonList: async ({ state, commit }, { offset, page }) => {
-    commit(types.GET_POKEMON_PRELOAD, true)
+  fetchPokemonList: async ({ state, commit }, { offset, page, isMore }) => {
+    commit(types.GET_POKEMON_PRELOAD, !isMore)
     try {
       const currentData = state.pokemons.data
       const query = {
@@ -87,6 +75,7 @@ const actions = {
       commit(types.GET_POKEMON, { data: [...currentData, ...data], isLoading: false })
     } catch (error) {
       console.error('fetchPokemonList', error)
+      commit(types.GET_POKEMON_PRELOAD, false)
       throw (error)
     }
   }

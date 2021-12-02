@@ -7,8 +7,9 @@ const moduleRoute = [
     component: Module,
     children: [
       {
-        path: '/pokemon',
-        component: Main
+        path: '/',
+        component: Main,
+        name: 'pokemon'
       }
     ]
   }

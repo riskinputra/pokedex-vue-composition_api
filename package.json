@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "yarn serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
-    "start": "yarn serve"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@apollo/client": "^3.4.16",
@@ -20,6 +20,7 @@
     "react": "^17.0.2",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
+    "vue3-lazyload": "^0.2.2-beta",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {

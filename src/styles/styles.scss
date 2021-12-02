@@ -7,4 +7,14 @@ body {
   font-family: 'Barlow', sans-serif;
   font-size: 16px;
   line-height: 154%;
+  overflow-x: hidden;
 }
+
+body {
+  @apply px-8;
+  background: linear-gradient(180deg, #1c3faa, #2b51b4);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  @apply py-5;
+}
+
